@@ -18,11 +18,17 @@ public class Movement : MonoBehaviour
         distance = Vector3.Distance(thisTransform.position, ponto.transform.position);
     }
 
+    public void Reset()
+    {
+        startTime = Time.time;
+        thisTransform = GetComponent<Transform>();
+        initialPos = thisTransform.position;
+        distance = Vector3.Distance(thisTransform.position, ponto.transform.position);
+    }
 
     void Update()
     {
-
-        percorrido = (Time.time - startTime) + velocity;
+        percorrido = (Time.time - startTime) * velocity;
         float fracao = percorrido / distance;
 
         if(thisTransform.position != ponto.transform.position)

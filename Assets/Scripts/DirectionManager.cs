@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class DirectionManager : MonoBehaviour
 {
+    public Movement movement;
     public GameObject[] pointsOfInterest;
     int actPoint;
 
     void Start()
     {
+        movement = GetComponent<Movement>();
         actPoint = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position == pointsOfInterest[actPoint].transform.position)
+        {
+            actPoint++;
+            if(actPoint >= 5)
+            {
+                actPoint = 0;
+            }
+            movement.ponto = pointsOfInterest[actPoint];
+            movement.Reset();
+        }
     }
 }
