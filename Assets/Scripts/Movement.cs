@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         percorrido = (Time.time - startTime) * velocity; //define a posição atual do objeto em relaçao ao tempo e sua velocidade
-        float fracao = percorrido / distance; //define quanto do caminho ja foi percorrido (0 = inicio / 100 = destino)
+        float fracao = percorrido / distance; //define quanto do caminho ja foi percorrido (0 = inicio / 1 = destino)
 
         if(thisTransform.position != ponto.transform.position) //se o objeto ainda nao chegou ao destino faça
         {
